@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, CheckCircle2, Loader2, Mail, Calendar, Clock, Video, User, Phone, MessageSquare, ChevronLeft, ChevronRight, Sparkles, Zap, Send, Minimize2 } from "lucide-react"
+import { ArrowRight, CheckCircle2, Loader2, Mail, Calendar, Clock, Video, User, Phone, ChevronLeft, ChevronRight, Sparkles, Zap } from "lucide-react"
 import { useState } from "react"
 
 const timeSlots = [
@@ -484,66 +484,6 @@ export default function FinalCTA() {
                   </div>
                 </div>
               )}
-
-              {/* Chatbox Widget */}
-              <div className="absolute bottom-4 left-4 w-80 z-20">
-                <div className="bg-background/95 backdrop-blur-sm border border-border rounded-xl shadow-2xl overflow-hidden">
-                  {/* Chat Header */}
-                  <div className="bg-primary/10 border-b border-border px-4 py-3 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                        <MessageSquare className="w-4 h-4 text-primary" />
-                      </div>
-                      <div>
-                        <div className="text-sm font-semibold text-foreground">Need help?</div>
-                        <div className="text-xs text-muted-foreground">We're here to assist</div>
-                      </div>
-                    </div>
-                    <button className="p-1.5 hover:bg-background/50 rounded-lg transition-colors">
-                      <Minimize2 className="w-4 h-4 text-muted-foreground" />
-                    </button>
-                  </div>
-
-                  {/* Chat Messages */}
-                  <div className="p-4 space-y-3 max-h-48 overflow-y-auto bg-secondary/30">
-                    <div className="flex items-start gap-2">
-                      <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                        <User className="w-3 h-3 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="bg-secondary rounded-lg px-3 py-2 text-sm text-foreground">
-                          Hi! How can I help you today?
-                        </div>
-                        <div className="text-xs text-muted-foreground mt-1 ml-1">Just now</div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2 justify-end">
-                      <div className="flex-1 flex justify-end">
-                        <div className="bg-primary/20 rounded-lg px-3 py-2 text-sm text-foreground max-w-[80%]">
-                          I have a question about pricing
-                        </div>
-                      </div>
-                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <User className="w-3 h-3 text-primary" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Chat Input */}
-                  <div className="border-t border-border p-3 bg-background">
-                    <div className="flex items-center gap-2">
-                      <input
-                        type="text"
-                        placeholder="Type your message..."
-                        className="flex-1 bg-background border border-border rounded-lg px-3 py-2 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                      />
-                      <button className="p-2 bg-primary text-background rounded-lg hover:bg-primary/90 transition-colors">
-                        <Send className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
