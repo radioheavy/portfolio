@@ -17,9 +17,9 @@ export default function Hero() {
 
       {/* Full Screen Code Editor */}
       <div className="relative z-10 w-full max-w-7xl mx-auto h-full flex flex-col">
-        <div className="glass-dark rounded-2xl overflow-hidden flex-1 flex flex-col group border border-border/50 shadow-2xl backdrop-blur-xl min-h-0">
+        <div className="bg-black rounded-2xl overflow-hidden flex-1 flex flex-col group border border-border/50 shadow-2xl min-h-0">
           {/* Window Header */}
-          <div className="flex items-center gap-3 px-4 py-3 border-b border-border/50 bg-card/60 backdrop-blur-sm">
+          <div className="flex items-center gap-3 px-4 py-3 border-b border-border/50 bg-card">
             <div className="flex gap-2">
               <div className="w-3 h-3 rounded-full bg-destructive shadow-sm"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500 shadow-sm"></div>
@@ -27,7 +27,7 @@ export default function Hero() {
             </div>
             <div className="flex-1 flex items-center justify-between px-4">
               <div className="flex items-center gap-3 text-xs">
-                <div className="flex items-center gap-2 px-2 py-1 rounded bg-secondary/50 border border-border/30">
+                <div className="flex items-center gap-2 px-2 py-1 rounded bg-secondary border border-border/30">
                   <GitBranch className="w-3 h-3 text-primary" />
                   <span className="text-muted-foreground">main</span>
                 </div>
@@ -46,7 +46,7 @@ export default function Hero() {
           {/* Editor Content */}
           <div className="flex-1 flex overflow-hidden">
             {/* Sidebar */}
-            <div className="w-48 border-r border-border/50 bg-secondary/40 flex flex-col py-4 min-w-[180px]">
+            <div className="w-48 border-r border-border/50 bg-secondary flex flex-col py-4 min-w-[180px]">
               <div className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                 Explorer
               </div>
@@ -73,18 +73,18 @@ export default function Hero() {
             {/* Main Editor Area */}
             <div className="flex-1 flex flex-col">
               {/* Tabs */}
-              <div className="flex items-end gap-0.5 px-2 pt-2 border-b border-border/50 bg-card/40">
-                <div className="px-4 py-2.5 text-sm font-medium text-foreground bg-card/80 border-t border-x border-border/50 rounded-t-lg relative">
+              <div className="flex items-end gap-0.5 px-2 pt-2 border-b border-border/50 bg-card">
+                <div className="px-4 py-2.5 text-sm font-medium text-foreground bg-card border-t border-x border-border/50 rounded-t-lg relative">
                   <span>hero.tsx</span>
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"></div>
                 </div>
-                <div className="px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground cursor-pointer hover:bg-card/40 rounded-t transition-colors">
+                <div className="px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground cursor-pointer hover:bg-secondary rounded-t transition-colors">
                   pricing.tsx
                 </div>
-                <div className="px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground cursor-pointer hover:bg-card/40 rounded-t transition-colors">
+                <div className="px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground cursor-pointer hover:bg-secondary rounded-t transition-colors">
                   capabilities.tsx
                 </div>
-                <div className="px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground cursor-pointer hover:bg-card/40 rounded-t transition-colors">
+                <div className="px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground cursor-pointer hover:bg-secondary rounded-t transition-colors">
                   globals.css
                 </div>
                 <div className="flex-1"></div>
@@ -257,7 +257,7 @@ export default function Hero() {
               </div>
 
               {/* Terminal */}
-              <div className="border-t border-border/50 bg-secondary/60 p-4 backdrop-blur-sm">
+              <div className="border-t border-border/50 bg-secondary p-4">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
@@ -289,7 +289,7 @@ export default function Hero() {
               </div>
 
               {/* Status Bar */}
-              <div className="border-t border-border/50 bg-card/60 px-4 py-2 flex items-center justify-between text-xs backdrop-blur-sm">
+              <div className="border-t border-border/50 bg-card px-4 py-2 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-4 text-muted-foreground">
                   <span>Ln 18, Col 15</span>
                   <span>Spaces: 2</span>

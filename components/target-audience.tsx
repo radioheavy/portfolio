@@ -25,23 +25,23 @@ export default function TargetAudience() {
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background relative">
       <div className="max-w-6xl mx-auto">
         {/* Dashboard Mockup */}
-        <div className="mb-16 glass-dark rounded-2xl overflow-hidden border border-border/50 shadow-2xl">
+        <div className="mb-16 bg-black rounded-2xl overflow-hidden border border-border/50 shadow-2xl">
           {/* Browser Header */}
-          <div className="flex items-center gap-2 px-4 py-3 border-b border-border/50 bg-card/60">
+          <div className="flex items-center gap-2 px-4 py-3 border-b border-border/50 bg-black">
             <div className="flex gap-2">
               <div className="w-3 h-3 rounded-full bg-destructive"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
               <div className="w-3 h-3 rounded-full bg-primary"></div>
             </div>
             <div className="flex-1 flex items-center justify-center gap-2 px-4">
-              <div className="flex-1 max-w-md bg-secondary/50 rounded-lg px-4 py-1.5 text-xs text-muted-foreground">
+              <div className="flex-1 max-w-md bg-secondary rounded-lg px-4 py-1.5 text-xs text-muted-foreground">
                 https://admin.example.com/dashboard
               </div>
             </div>
           </div>
 
           {/* Dashboard Content */}
-          <div className="p-6 bg-card/30">
+          <div className="p-6 bg-black">
             {/* Top Stats */}
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div className="bg-primary/10 border border-primary/30 rounded-lg p-4">
@@ -68,7 +68,7 @@ export default function TargetAudience() {
                 return (
                   <div
                     key={idx}
-                    className="bg-secondary/40 border border-border/50 rounded-xl p-6 group hover:border-primary/50 transition-all"
+                    className="bg-secondary border border-border/50 rounded-xl p-6 group hover:border-primary/50 transition-all"
                   >
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-2 rounded-lg bg-primary/30 group-hover:bg-primary/50 transition-all">
@@ -102,7 +102,7 @@ export default function TargetAudience() {
             </div>
 
             {/* Bottom Table Mock */}
-            <div className="mt-6 bg-secondary/40 border border-border/50 rounded-xl p-4">
+            <div className="mt-6 bg-secondary border border-border/50 rounded-xl p-4">
               <div className="flex items-center justify-between mb-3">
                 <h4 className="text-sm font-semibold text-foreground">Recent Activity</h4>
                 <div className="text-xs text-muted-foreground">View all →</div>
@@ -129,7 +129,7 @@ export default function TargetAudience() {
             return (
               <div
                 key={idx}
-                className="group glass-dark rounded-2xl p-8 hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/20"
+                className="group bg-card rounded-2xl p-8 hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/20"
               >
                 <div className="mb-6">
                   <div className="inline-block p-3 rounded-lg bg-primary/30 group-hover:bg-primary/50 transition-all">

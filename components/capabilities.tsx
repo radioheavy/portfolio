@@ -1,76 +1,275 @@
 "use client"
 
-import { Database, Zap, Globe, Brain, Layers, Server } from "lucide-react"
+import { Database, Zap, Globe, Brain, Layers, Server, Terminal, ChevronRight, Play, CheckCircle2, Code2 } from "lucide-react"
+import { useState } from "react"
 
 const capabilities = [
   {
     icon: Zap,
     category: "Frontend",
     items: ["Next.js 15", "React 19", "TypeScript", "Tailwind", "Framer Motion"],
+    command: "npm install next@latest react@latest typescript tailwindcss framer-motion",
   },
   {
     icon: Database,
     category: "Backend",
     items: ["API Development", "Authentication", "Database Design", "Real-time Sync"],
+    command: "npm install express prisma @prisma/client jsonwebtoken socket.io",
   },
   {
     icon: Globe,
     category: "I18N & L10N",
     items: ["11 Languages", "Auto-translation", "Regional Customization"],
+    command: "npm install next-intl i18next react-i18next",
   },
   {
     icon: Brain,
     category: "AI Integration",
     items: ["Groq", "OpenAI", "Content Generation", "Chatbots"],
+    command: "npm install @groq/sdk openai langchain",
   },
   {
     icon: Layers,
     category: "CMS & Admin",
     items: ["Custom Panels", "Content Management", "User Roles", "Analytics"],
+    command: "npm install @strapi/strapi react-admin",
   },
   {
     icon: Server,
     category: "DevOps",
     items: ["PM2", "Nginx", "Vercel", "CDN", "Performance Optimization"],
+    command: "npm install -g pm2 && vercel deploy",
   },
 ]
 
 export default function Capabilities() {
-  return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background relative">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">Tech Capabilities</h2>
-          <p className="text-muted-foreground text-lg">Full-stack expertise across modern technologies</p>
-        </div>
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(null)
+  const [isInstalling, setIsInstalling] = useState(false)
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {capabilities.map((cap, idx) => {
-            const Icon = cap.icon
-            return (
-              <div
-                key={idx}
-                className="glass-dark rounded-2xl p-8 group hover:border-primary/50 transition-all hover:shadow-2xl hover:shadow-primary/20"
-              >
-                <div className="mb-4">
-                  <div className="inline-block p-3 rounded-lg bg-primary/30 group-hover:bg-primary/50 transition-all">
-                    <Icon className="w-6 h-6 text-primary" />
+  const handleCategoryClick = (idx: number) => {
+    setSelectedCategory(idx)
+    setIsInstalling(true)
+    setTimeout(() => setIsInstalling(false), 2000)
+  }
+
+  return (
+    <section className="h-screen w-full overflow-hidden bg-background relative flex items-center justify-center px-4 sm:px-6 lg:px-8 py-4">
+      <div className="max-w-7xl mx-auto w-full h-full flex flex-col">
+        {/* Terminal/CLI Mockup */}
+        <div className="bg-black rounded-2xl overflow-hidden border border-border/50 shadow-2xl flex-1 flex flex-col min-h-0">
+          {/* Terminal Header */}
+          <div className="bg-card border-b border-border/50 px-4 py-3 flex items-center gap-3 flex-shrink-0">
+            <div className="flex gap-2">
+              <div className="w-3 h-3 rounded-full bg-destructive shadow-sm"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500 shadow-sm"></div>
+              <div className="w-3 h-3 rounded-full bg-primary shadow-sm"></div>
+            </div>
+            <div className="flex-1 flex items-center justify-between px-4">
+              <div className="flex items-center gap-3 text-xs">
+                <div className="flex items-center gap-2 px-2 py-1 rounded bg-secondary border border-border/30">
+                  <Terminal className="w-3 h-3 text-primary" />
+                  <span className="text-muted-foreground">Tech Stack CLI</span>
+                </div>
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Code2 className="w-3 h-3 text-primary/50" />
+                  <span>Capabilities Manager</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <div className="w-2 h-2 rounded-full bg-primary/50 animate-pulse"></div>
+                <span>Ready</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="flex-1 flex overflow-hidden min-h-0">
+            {/* Sidebar - Categories */}
+            <div className="w-64 border-r border-border/50 bg-secondary flex flex-col flex-shrink-0">
+              <div className="px-4 py-3 border-b border-border/30">
+                <h2 className="text-sm font-semibold text-foreground mb-1">Tech Categories</h2>
+                <p className="text-xs text-muted-foreground">Select to view details</p>
+              </div>
+              <div className="flex-1 overflow-auto p-2 space-y-1">
+                {capabilities.map((cap, idx) => {
+                  const Icon = cap.icon
+                  const isSelected = selectedCategory === idx
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => handleCategoryClick(idx)}
+                      className={`w-full text-left p-3 rounded-lg transition-all group ${
+                        isSelected
+                          ? "bg-primary/20 border border-primary/50 shadow-md"
+                          : "bg-secondary/50 border border-border/20 hover:border-primary/30 hover:bg-primary/5"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <div
+                          className={`p-1.5 rounded ${
+                            isSelected ? "bg-primary/30" : "bg-primary/10 group-hover:bg-primary/20"
+                          }`}
+                        >
+                          <Icon className={`w-4 h-4 ${isSelected ? "text-primary" : "text-primary/70"}`} />
+                        </div>
+                        <span className={`text-sm font-semibold ${isSelected ? "text-primary" : "text-foreground"}`}>
+                          {cap.category}
+                        </span>
+                      </div>
+                      <div className="text-xs text-muted-foreground ml-8">
+                        {cap.items.length} technologies
+                      </div>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* Terminal Output Area */}
+            <div className="flex-1 flex flex-col overflow-hidden bg-black">
+              {/* Terminal Toolbar */}
+              <div className="px-4 py-2 border-b border-border/30 bg-secondary/30 flex items-center gap-2 flex-shrink-0">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <Terminal className="w-3 h-3" />
+                  <span>Output</span>
+                </div>
+                <div className="flex-1"></div>
+                <div className="flex items-center gap-1">
+                  <div className="w-2 h-2 rounded-full bg-primary/50"></div>
+                  <span className="text-xs text-muted-foreground">Active</span>
+                </div>
+              </div>
+
+              {/* Terminal Content */}
+              <div className="flex-1 overflow-auto p-6 font-mono text-sm">
+                <div className="space-y-4 max-w-4xl">
+                  {/* Welcome Message */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-primary/80">
+                      <span className="text-primary">$</span>
+                      <span>tech-stack --help</span>
+                    </div>
+                    <div className="text-muted-foreground/80 ml-6 space-y-1">
+                      <div>Tech Stack CLI v2.0.0</div>
+                      <div>Available commands:</div>
+                      <div className="ml-4 space-y-0.5">
+                        <div>• list - Show all capabilities</div>
+                        <div>• install [category] - Install tech stack</div>
+                        <div>• info [category] - Show category details</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Selected Category Output */}
+                  {selectedCategory !== null && (
+                    <div className="space-y-3 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                      <div className="flex items-center gap-2 text-primary/80">
+                        <span className="text-primary">$</span>
+                        <span>tech-stack info {capabilities[selectedCategory].category.toLowerCase()}</span>
+                      </div>
+
+                      {/* Category Info */}
+                      <div className="bg-secondary/50 border border-border/30 rounded-lg p-4 space-y-4">
+                        <div className="flex items-center gap-3 pb-3 border-b border-border/20">
+                          {(() => {
+                            const Icon = capabilities[selectedCategory].icon
+                            return (
+                              <div className="p-2 rounded-lg bg-primary/20">
+                                <Icon className="w-5 h-5 text-primary" />
+                              </div>
+                            )
+                          })()}
+                          <div>
+                            <h3 className="text-lg font-bold text-foreground">
+                              {capabilities[selectedCategory].category}
+                            </h3>
+                            <p className="text-xs text-muted-foreground">
+                              {capabilities[selectedCategory].items.length} technologies available
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Technologies List */}
+                        <div className="space-y-2">
+                          <div className="text-xs font-semibold text-muted-foreground mb-2">Technologies:</div>
+                          {capabilities[selectedCategory].items.map((item, i) => (
+                            <div key={i} className="flex items-center gap-2 text-sm">
+                              <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                              <span className="text-foreground">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Install Command */}
+                        <div className="pt-3 border-t border-border/20">
+                          <div className="text-xs font-semibold text-muted-foreground mb-2">Install Command:</div>
+                          <div className="bg-black/50 border border-border/30 rounded p-3 font-mono text-xs">
+                            <div className="text-primary/60 mb-1">$</div>
+                            <div className="text-foreground break-all">
+                              {capabilities[selectedCategory].command}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Installation Progress */}
+                      {isInstalling && (
+                        <div className="space-y-2 animate-in fade-in duration-300">
+                          <div className="flex items-center gap-2 text-primary/80">
+                            <span className="text-primary">$</span>
+                            <span>npm install...</span>
+                          </div>
+                          <div className="ml-6 space-y-1">
+                            <div className="flex items-center gap-2 text-muted-foreground/80">
+                              <div className="w-1 h-1 rounded-full bg-primary animate-pulse"></div>
+                              <span>Resolving packages...</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-muted-foreground/80">
+                              <div className="w-1 h-1 rounded-full bg-primary animate-pulse" style={{ animationDelay: "200ms" }}></div>
+                              <span>Fetching dependencies...</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-muted-foreground/80">
+                              <div className="w-1 h-1 rounded-full bg-primary animate-pulse" style={{ animationDelay: "400ms" }}></div>
+                              <span>Installing packages...</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Success Message */}
+                      {!isInstalling && selectedCategory !== null && (
+                        <div className="flex items-center gap-2 text-primary/80 animate-in fade-in duration-300">
+                          <CheckCircle2 className="w-4 h-4 text-primary" />
+                          <span>✓ {capabilities[selectedCategory].category} stack ready</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Prompt */}
+                  <div className="flex items-center gap-2 text-primary/80 mt-6">
+                    <span className="text-primary">$</span>
+                    <span className="animate-pulse">▋</span>
                   </div>
                 </div>
-
-                <h3 className="text-lg font-bold mb-4 text-foreground">{cap.category}</h3>
-
-                <ul className="space-y-2">
-                  {cap.items.map((item, i) => (
-                    <li key={i} className="text-sm text-foreground flex items-center gap-2">
-                      <span className="w-1 h-1 rounded-full bg-primary"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
-            )
-          })}
+
+              {/* Terminal Footer */}
+              <div className="border-t border-border/30 bg-secondary/30 px-4 py-2 flex items-center justify-between text-xs flex-shrink-0">
+                <div className="flex items-center gap-4 text-muted-foreground">
+                  <span>6 categories</span>
+                  <span>•</span>
+                  <span>30+ technologies</span>
+                  <span>•</span>
+                  <span>100% expertise</span>
+                </div>
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Play className="w-3 h-3 text-primary" />
+                  <span>Ready to deploy</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

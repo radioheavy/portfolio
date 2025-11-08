@@ -1,0 +1,9 @@
+Hero: Code Editor
+Capabilities: Tech Stack Browser
+Differentiation: Timeline Dashboard
+Case Study: Browser iframe
+FAQ: Chatbot
+Pricing: Pricing Page Browser
+Process Timeline: GitHub Workflow
+Target Audience: Admin Dashboard
+Final CTA: Contact Management Dashboard (yeni)
