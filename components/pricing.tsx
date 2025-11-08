@@ -153,7 +153,7 @@ export default function Pricing() {
                               </span>
                             )}
                           </div>
-                          <div className="text-xs font-bold text-primary mt-0.5">{plan.price.toLocaleString()} TL</div>
+                          <div className="text-xs font-bold text-primary mt-0.5">{plan.price.toLocaleString('en-US')} TL</div>
                         </div>
                       </div>
                       <div className="text-xs text-muted-foreground">{plan.features.length} features included</div>
@@ -262,8 +262,8 @@ export default function Pricing() {
                               </div>
                             </td>
                             <td className="text-center py-4 text-gray-700">{quantity}</td>
-                            <td className="text-right py-4 text-gray-700">{basePrice.toLocaleString()} TL</td>
-                            <td className="text-right py-4 font-semibold text-gray-900">{subtotal.toLocaleString()} TL</td>
+                            <td className="text-right py-4 text-gray-700">{basePrice.toLocaleString('en-US')} TL</td>
+                            <td className="text-right py-4 font-semibold text-gray-900">{subtotal.toLocaleString('en-US')} TL</td>
                           </tr>
                         </tbody>
                       </table>
@@ -274,21 +274,21 @@ export default function Pricing() {
                       <div className="w-64 space-y-2">
                         <div className="flex justify-between text-sm text-gray-700">
                           <span>Subtotal:</span>
-                          <span>{subtotal.toLocaleString()} TL</span>
+                          <span>{subtotal.toLocaleString('en-US')} TL</span>
                         </div>
                         {discount > 0 && (
                           <div className="flex justify-between text-sm text-green-600">
                             <span>Discount ({discount}%):</span>
-                            <span>-{discountAmount.toLocaleString()} TL</span>
+                            <span>-{discountAmount.toLocaleString('en-US')} TL</span>
                           </div>
                         )}
                         <div className="flex justify-between text-sm text-gray-700">
                           <span>Tax (18%):</span>
-                          <span>{tax.toLocaleString()} TL</span>
+                          <span>{tax.toLocaleString('en-US')} TL</span>
                         </div>
                         <div className="flex justify-between text-lg font-bold text-gray-900 pt-2 border-t-2 border-gray-300">
                           <span>Total:</span>
-                          <span className="text-primary">{total.toLocaleString()} TL</span>
+                          <span className="text-primary">{total.toLocaleString('en-US')} TL</span>
                         </div>
                       </div>
                     </div>
