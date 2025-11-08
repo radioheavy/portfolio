@@ -5,7 +5,7 @@ import { ArrowRight, GitBranch, Circle } from "lucide-react"
 
 export default function Hero() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-background flex items-center justify-center py-8 px-4 sm:px-6 lg:px-8">
+    <div className="relative h-screen w-full overflow-hidden bg-background flex items-center justify-center px-4 sm:px-6 lg:px-8 py-4">
       {/* Animated gradient background */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
@@ -16,8 +16,8 @@ export default function Hero() {
       </div>
 
       {/* Full Screen Code Editor */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto">
-        <div className="glass-dark rounded-2xl overflow-hidden h-[90vh] min-h-[700px] flex flex-col group border border-border/50 shadow-2xl backdrop-blur-xl">
+      <div className="relative z-10 w-full max-w-7xl mx-auto h-full flex flex-col">
+        <div className="glass-dark rounded-2xl overflow-hidden flex-1 flex flex-col group border border-border/50 shadow-2xl backdrop-blur-xl min-h-0">
           {/* Window Header */}
           <div className="flex items-center gap-3 px-4 py-3 border-b border-border/50 bg-card/60 backdrop-blur-sm">
             <div className="flex gap-2">
