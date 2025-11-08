@@ -49,46 +49,46 @@
 }
 
 .dark {
-  --background: #fafafa;
+  --background: #0f1117;
   --foreground: #ffffff;
-  --card: #1b1a2a;
+  --card: #000000;
   --card-foreground: #ffffff;
-  --popover: #1b1a2a;
+  --popover: #000000;
   --popover-foreground: #ffffff;
   --primary: #1a886d;
   --primary-foreground: #ffffff;
-  --secondary: #0d1f23;
+  --secondary: #000000;
   --secondary-foreground: #ffffff;
-  --muted: #0d1f23;
+  --muted: #000000;
   --muted-foreground: #a0a0a0;
   --accent: #1a886d;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: #ffffff;
-  --border: #0d1f23;
-  --input: #171926;
+  --border: #000000;
+  --input: #000000;
   --ring: #1a886d;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: #1b1a2a;
+  --sidebar: #000000;
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #1a886d;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #0d1f23;
+  --sidebar-accent: #000000;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #0d1f23;
+  --sidebar-border: #000000;
   --sidebar-ring: #1a886d;
   --neon-cyan: #1a886d;
   --neon-purple: #1a886d;
   --neon-green: #1a886d;
   --accent-light: #1a886d;
-  --accent-dark: #0d1f23;
+  --accent-dark: #000000;
   --text-muted: #a0a0a0;
   --text-secondary: #ffffff;
-  --border-light: #1b1a2a;
+  --border-light: #000000;
   --destructive-color: #ef4444;
 }
 
@@ -139,6 +139,21 @@
   }
   body {
     @apply bg-background text-foreground;
+    background: linear-gradient(135deg, #0f1117 0%, #151b20 25%, #0f1117 50%, #151b20 75%, #0f1117 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
@@ -185,5 +200,23 @@
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: var(--primary);
+  }
+
+  @media (min-width: 640px) {
+    [data-duration="1"] {
+      flex: 1;
+    }
+    [data-duration="2"] {
+      flex: 2;
+    }
+    [data-duration="3"] {
+      flex: 3;
+    }
+    [data-duration="4"] {
+      flex: 4;
+    }
+    [data-duration="8"] {
+      flex: 8;
+    }
   }
 }

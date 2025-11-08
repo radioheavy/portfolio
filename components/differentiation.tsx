@@ -75,10 +75,8 @@ export default function Differentiation() {
                       <div
                         key={idx}
                         className={`${phase.color} border-2 ${phase.border} rounded-lg p-2 sm:p-2.5 md:p-3 relative flex-shrink-0 sm:flex-shrink`}
-                        style={{ 
-                          minWidth: "80px",
-                          ...(typeof window !== "undefined" && window.innerWidth >= 640 ? { flex: phase.duration } : {})
-                        }}
+                        style={{ minWidth: "80px" }}
+                        data-duration={phase.duration}
                       >
                         <div className="flex items-center justify-between mb-0.5 sm:mb-1 flex-col sm:flex-row gap-0.5 sm:gap-0">
                           <span className="text-[10px] sm:text-xs font-semibold text-foreground text-center sm:text-left">{phase.name}</span>
@@ -116,7 +114,10 @@ export default function Differentiation() {
                       <div
                         key={idx}
                         className={`${phase.color} border-2 ${phase.border} rounded-lg p-2 sm:p-2.5 md:p-3 relative flex-shrink-0 sm:flex-shrink`}
-                        style={{ minWidth: "80px", flex: typeof window !== "undefined" && window.innerWidth >= 640 ? phase.duration : "none" }}
+                        style={{ 
+                          minWidth: "80px"
+                        }}
+                        data-duration={phase.duration}
                       >
                         <div className="flex items-center justify-between mb-0.5 sm:mb-1 flex-col sm:flex-row gap-0.5 sm:gap-0">
                           <span className="text-[10px] sm:text-xs font-semibold text-foreground text-center sm:text-left">{phase.name}</span>
